@@ -1,0 +1,57 @@
+.app {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.borde {
+  border-color: black;
+  position: fixed;
+  top: 10px;
+  transform: translateY(10px);
+  background-color: #fff;
+}
+
+.slick-slider {
+  margin: 20px auto;
+}
+
+.slick-slide {
+  text-align: center;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.pc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+@media print {
+  #imprimir {
+    display: none;
+  }
+}
