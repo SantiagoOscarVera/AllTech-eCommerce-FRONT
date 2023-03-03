@@ -4,7 +4,7 @@ import { RootState } from "./store";
 import axios from "axios";
 
 export const postClaim = (value: any) => {
-  axios.post("https://henry-pf-back.up.railway.app/claims", value);
+  axios.post("https://alltech-ecommerce-back-production.up.railway.app/claims", value);
   return {
     type: ActionTypes.POST_CLAIM,
     payload: value,
@@ -22,7 +22,7 @@ export const putUser =
   (user: any, id: any): ThunkAction<void, RootState, unknown, AnyAction> =>
   (dispatch) => {
     return axios
-      .put("https://henry-pf-back.up.railway.app/users/" + id, user)
+      .put("https://alltech-ecommerce-back-production.up.railway.app/users/" + id, user)
       .then(
         (response) => {
           if (response.status) {
@@ -52,14 +52,14 @@ export const getUser = (value: any) => {
 
 export const searchUserByEmail = (value: any) => async (dispatch: any) => {
   const user = await axios.get(
-    `https://henry-pf-back.up.railway.app/useremail/${value}`
+    `https://alltech-ecommerce-back-production.up.railway.app/useremail/${value}`
   );
 
   dispatch(getUser(user.data));
 };
 
 export const createProduct = (value: any) => {
-  axios.post("https://henry-pf-back.up.railway.app/products", value);
+  axios.post("https://alltech-ecommerce-back-production.up.railway.app/products", value);
   return {
     type: ActionTypes.CREATE_PRODUCT,
     payload: value,
@@ -67,7 +67,7 @@ export const createProduct = (value: any) => {
 };
 
 export const footerEmail = (value: any) => {
-  axios.post("https://henry-pf-back.up.railway.app/emails", value);
+  axios.post("https://alltech-ecommerce-back-production.up.railway.app/emails", value);
   return {
     type: ActionTypes.FOOTER_EMAIL,
     payload: value,
@@ -75,7 +75,7 @@ export const footerEmail = (value: any) => {
 };
 
 export const sendProducts = (value: any) => {
-  axios.post("https://henry-pf-back.up.railway.app/sale", value);
+  axios.post("https://alltech-ecommerce-back-production.up.railway.app/sale", value);
 
   return {
     type: ActionTypes.CREATE_PRODUCT,
@@ -154,7 +154,7 @@ export const fetchProductsApi =
     dispatch(productsLoading());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/products")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/products")
       .then(
         function (response) {
           if (response.status) return response;
@@ -202,7 +202,7 @@ export const fetchBrandApi =
     dispatch(brandLoading());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/brands")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/brands")
       .then(
         function (response) {
           if (response.status) return response;
@@ -252,7 +252,7 @@ export const fetchCategoryApi =
     dispatch(categoryLoading());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/category")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/category")
       .then(
         function (response) {
           if (response.status) {
@@ -286,7 +286,7 @@ export const payMercadoPagoApi = (products: Product[]) => {
   return async (dispatch: any) => {
     try {
       const response = await fetch(
-        "https://henry-pf-back.up.railway.app/api/pay",
+        "https://alltech-ecommerce-back-production.up.railway.app/api/pay",
         {
           method: "POST",
           headers: {
@@ -332,7 +332,7 @@ export const postCateogry =
     };
 
     return axios
-      .post("https://henry-pf-back.up.railway.app/category", newCategory)
+      .post("https://alltech-ecommerce-back-production.up.railway.app/category", newCategory)
       .then((response) => {
         dispatch(addCategory(response.data));
       })
@@ -355,7 +355,7 @@ export const deleteCateogry =
     dispatch(categoryLoading());
 
     return axios
-      .delete(`https://henry-pf-back.up.railway.app/${id}`, {})
+      .delete(`https://alltech-ecommerce-back-production.up.railway.app/${id}`, {})
       .then(
         (response) => {
           if (response.data) {
@@ -393,7 +393,7 @@ export const putCateogry =
     dispatch(categoryLoading());
 
     return axios
-      .put("https://henry-pf-back.up.railway.app/category/" + id, category)
+      .put("https://alltech-ecommerce-back-production.up.railway.app/category/" + id, category)
       .then(
         (response) => {
           if (response.status) {
@@ -431,7 +431,7 @@ export const postBrand =
 
     const accessToken = localStorage.getItem("accessToken");
 
-    return fetch("https://henry-pf-back.up.railway.app/brands", {
+    return fetch("https://alltech-ecommerce-back-production.up.railway.app/brands", {
       method: "POST",
       body: JSON.stringify(newBrand),
       headers: {
@@ -476,7 +476,7 @@ export const deleteBrandApi =
   (dispatch) => {
     dispatch(brandLoading());
 
-    return fetch(`https://henry-pf-back.up.railway.app/brands/${id}`, {
+    return fetch(`https://alltech-ecommerce-back-production.up.railway.app/brands/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -516,7 +516,7 @@ export const putBrand =
     dispatch(categoryLoading());
 
     return axios
-      .put(`https://henry-pf-back.up.railway.app/brands/${id}`, brand)
+      .put(`https://alltech-ecommerce-back-production.up.railway.app/brands/${id}`, brand)
       .then(
         (response) => {
           if (response.status) {
@@ -549,7 +549,7 @@ export const postProduct =
     dispatch(productsLoading());
 
     return axios
-      .post("https://henry-pf-back.up.railway.app/products", newProduct)
+      .post("https://alltech-ecommerce-back-production.up.railway.app/products", newProduct)
       .then((response) => {
         dispatch(addProduct(response.data));
       })
@@ -587,7 +587,7 @@ export const putProduct =
   (dispatch) => {
     dispatch(productsLoading());
     return axios
-      .put("https://henry-pf-back.up.railway.app/product/" + id, product)
+      .put("https://alltech-ecommerce-back-production.up.railway.app/product/" + id, product)
       .then(
         (response) => {
           if (response.status) {
@@ -653,7 +653,7 @@ export const fetchQuestionsApi =
     dispatch(categoryLoading());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/questions")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/questions")
       .then(
         function (response) {
           if (response.status) {
@@ -684,7 +684,7 @@ export const postQuestion =
     dispatch(loadingQuestion());
 
     return axios
-      .post("https://henry-pf-back.up.railway.app/questions", {
+      .post("https://alltech-ecommerce-back-production.up.railway.app/questions", {
         userMail,
         product,
         newQuestion,
@@ -707,7 +707,7 @@ export const putQuestion =
   ): ThunkAction<void, RootState, unknown, AnyAction> =>
   (dispatch) => {
     return axios
-      .put("https://henry-pf-back.up.railway.app/question/" + id, question)
+      .put("https://alltech-ecommerce-back-production.up.railway.app/question/" + id, question)
       .then(
         (response) => {
           if (response.status) {
@@ -772,7 +772,7 @@ export const fetchSalesApi =
     dispatch(loadingSale());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/sale")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/sale")
       .then(
         function (response) {
           if (response.status) {
@@ -797,7 +797,7 @@ export const putSale =
   (id: string, sale: any): ThunkAction<void, RootState, unknown, AnyAction> =>
   (dispatch) => {
     return axios
-      .put("https://henry-pf-back.up.railway.app/sale/" + id, sale)
+      .put("https://alltech-ecommerce-back-production.up.railway.app/sale/" + id, sale)
       .then(
         (response) => {
           if (response.status) {
@@ -855,7 +855,7 @@ export const fetchUsersApi =
     dispatch(loadingUser());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/users")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/users")
       .then(
         function (response) {
           if (response.status) {
@@ -886,7 +886,7 @@ export const saveReview =
   ): ThunkAction<void, RootState, unknown, AnyAction> =>
   async (dispatch) => {
     return axios
-      .post("https://henry-pf-back.up.railway.app/reviews", {
+      .post("https://alltech-ecommerce-back-production.up.railway.app/reviews", {
         description,
         productoID,
         rating,
@@ -942,7 +942,7 @@ export const saveReview =
     dispatch(loadingClaim());
 
     return await axios
-      .get("https://henry-pf-back.up.railway.app/claims")
+      .get("https://alltech-ecommerce-back-production.up.railway.app/claims")
       .then(
         function (response) {
           if (response.status) {
